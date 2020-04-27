@@ -44,12 +44,12 @@ public class ExampleExceptionTest {
   public void testRectangleAreaNegative(int a, int b) {
     try {
       if (a <= 0 || b <= 0) {
-        throw new IllegalArgumentException("Input value is below zero!");
+        throw new IllegalArgumentException("input value is below zero!");
       } else {
       }
     }
     catch (IllegalArgumentException e) {
-      assertEquals(e.getMessage(), "Input value is below zero!");
+      assertEquals(e.getMessage(), "input value is below zero!");
     }
   }
 }
