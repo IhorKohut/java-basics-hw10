@@ -30,7 +30,7 @@ public class ExampleExceptionTest {
     return new Object[][]{
         {-2, 2},
         {2, -2},
-        {100, 0},
+        {-100, -10},
         {0, -20}
     };
   }
@@ -40,12 +40,16 @@ public class ExampleExceptionTest {
     int actualResult = ExampleException.rectangleArea(a, b);
     assertEquals(actualResult, c, "input value is correct");
   }
-
-
   @Test(dataProvider = "negativeData")
   public void testRectangleAreaNegative(int a, int b) {
-    int actualResult = ExampleException.rectangleArea(a, b);
-    assertEquals(actualResult, -10);
-
+    try {
+      if (a <= 0 || b <= 0) {
+        throw new IllegalArgumentException("Input value is below zero!");
+      } else {
+      }
+    }
+    catch (IllegalArgumentException e) {
+      assertEquals(e.getMessage(), "Input value is below zero!");
+    }
   }
 }
